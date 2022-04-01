@@ -12,7 +12,6 @@ class MessagesController extends Controller
     public function index()
     {
         $messages = Message::orderBy('id', 'desc')->paginate(25);
-
         
         // メッセージ一覧ビューでそれを表示
         return view('messages.index', [
@@ -77,7 +76,7 @@ class MessagesController extends Controller
     // putまたはpatchでmessages/idにアクセスされた場合の「更新処理」
     public function update(Request $request, $id)
     {
-        dd($request); 
+        
         // バリデーション
         $request->validate([
             'title' => 'required|max:255',
